@@ -19,7 +19,6 @@ let app = new Vue({
     },
     mounted:function(){
         this.tempList = this.todoList;
-        console.log(this.tempList);
     },
     methods: {
         add:function(thing){
@@ -30,8 +29,6 @@ let app = new Vue({
             this.newadd.push(thing);
             this.newtodo = {title:'',con:''};
             // oFunc.inform('add success!');
-           
-            console.table(this.todoList);
         },
         check:function(thing){
             this.alreadyAdd = false;
@@ -48,7 +45,6 @@ let app = new Vue({
             this.todoList = this.todoList.filter(function(item){
                 return item.status == 'done';
             });
-            console.log(this.todoList);
         },
         filterUndo:function(){
             this.todoList = this.tempList;
@@ -56,7 +52,6 @@ let app = new Vue({
             this.todoList = this.todoList.filter(function(item){
                 return item.status == 'undo';
             });
-            console.log(this.todoList);
         },
         total:function(){
             this.todoList = this.tempList;
@@ -64,7 +59,6 @@ let app = new Vue({
         },
         done:function(item){
             item.show = !item.show;
-            console.log(item.show);
         }
     },
 });
