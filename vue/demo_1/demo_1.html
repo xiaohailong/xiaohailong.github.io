@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo_1_todolist</title>
+    <link rel="stylesheet" href="./demo_1.css">
+</head>
+<body>
+    <div id="app" v-cloak>
+        <h1 class="title">{{title}}</h1>
+        <!-- content ul -->
+        <ul class="content_ul">
+            <li class="content_ul_li" v-show="choosed == 1">
+                1
+                <span v-text="title" :class="{red:isRed}" :style="{fontSize:'30px'}"></span>
+                <div v-html="html+'111'" :class=""></div>
+                <div v-if="'a' > 'b'">a>b</div>
+                <div v-else>a < b </div> 
+                <div v-for="(item,index) in list">
+                    {{index}}-{{item}}
+                </div>  
+                <span v-pre>{{ this will not be compiled }}</span>
+            </li>
+            <li class="content_ul_li" v-show="choosed == 2">2</li>
+            <li class="content_ul_li" v-show="choosed == 3">3</li>
+            <li class="content_ul_li" v-show="choosed == 4">4</li>
+        </ul>
+        <!--tab ul -->
+        <ul class="tab_ul">
+            <li class="tab_ul_li" @click="choosed = 1">1</li>
+            <li class="tab_ul_li" @click="choosed = 2">2</li>
+            <li class="tab_ul_li" @click="choosed = 3">3</li>
+            <li class="tab_ul_li" @click="choosed = 4">4</li>
+        </ul>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="./demo_1.es"></script>
+</body>
+</html>
