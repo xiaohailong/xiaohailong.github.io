@@ -1,3 +1,4 @@
+@import url('../../public/css/toast.css');
 *{
     margin:0;
     padding:0;
@@ -38,12 +39,109 @@ body{
 .tab_ul_li:last-child{
     border-right:none ;
 }
-.content_ul .content_ul_li{
+.content_ul .content_ul_li .li_item{
+    /* text-align: center; */
+    font-size: 19px;
+    border-bottom:1px solid #ddd;
+    height: 45px;
+    line-height: 45px;
+    padding:0 20px;
+    position: relative;
+}
+.content_ul_li:last-child{
+    padding:15px;
+}
+.tran{
+    box-sizing: border-box;
+    position: absolute;
+    top:0;
+    left: 0;
+    background: #fff;
+    width: 97%;
+    padding:0 20px;
+    font-size: 19px;
+}
+.item{
+    height: 30px;
+    display: inline-block;
+    border-radius: 5px;
+    padding: 0 15px;
+    line-height: 30px;
+    vertical-align: middle;
+    position: absolute;
+    top:6px;
+    right: 20px;
+}
+.item_done{
+    border: 1px solid darkgreen;  
+}
+.item_undo{
+   border:1px solid rebeccapurple;
+}
+.tran_span{
+    height: 30px;
+    display: inline-block;
+    /* float: right; */
+    border-radius: 5px;
+    padding: 0 15px;
+    line-height: 30px;
+    vertical-align: middle;
+    position: absolute;
+    top:6px;
+}
+.tran_yes{
+    border: 1px solid darkgreen;
+    right: 76px;
+}
+.tran_no{
+    border:1px solid rebeccapurple;
+    right: 11px;
+}
 
-}
-.red{
-    color:red;
-}
-.bold{
-    font-weight: bold;
-}
+.slide-fade-enter-active {
+    transition: all .3s ease;
+  }
+  .slide-fade-leave-active {
+    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  .slide-fade-enter, .slide-fade-leave-to
+  /* .slide-fade-leave-active for below version 2.1.8 */ {
+    transform: translateX(10px);
+    opacity: 0;
+  }
+
+
+
+  /* add */
+  .newtitle{
+    border: 1px solid #ddd;
+    padding: 7px;
+    display: block;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 15px 0; 
+  }
+  .newcontent{
+    display: block;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    margin: 15px 0;
+    padding: 7px;
+  }
+  .add{
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid darkgreen;
+    border-radius: 5px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  .log{
+      margin-top:15px;
+  }

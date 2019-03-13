@@ -12,27 +12,39 @@
         <h1 class="title">{{title}}</h1>
         <!-- content ul -->
         <ul class="content_ul">
-            <li class="content_ul_li" v-show="choosed == 1">
-                1
-                <span v-text="title" :class="{red:isRed}" :style="{fontSize:'30px'}"></span>
-                <div v-html="html+'111'" :class=""></div>
-                <div v-if="'a' > 'b'">a>b</div>
-                <div v-else>a < b </div> 
-                <div v-for="(item,index) in list">
-                    {{index}}-{{item}}
-                </div>  
-                <span v-pre>{{ this will not be compiled }}</span>
+            <li class="content_ul_li" v-show="choosed == 'total'">
+                <div v-for="(item,index) in todoList" class="li_item">
+                    {{index+1}}. {{item.title}}<span @click="done(item)" class ='item' v-bind:class="item.status == 'done'?'item_done':'item_undo'">{{item.status == 'done'?'done':'done ?'}}</span>
+                    <transition name="slide-fade" v-show="item.status == 'undo'" class="tran"> 
+                        <div v-show="item.show" class="tran">
+                            are sure done it ?
+                            <span class="tran_yes tran_span" @click="item.status = 'done';item.show=!item.show;">YES</span>
+                            <span class="tran_no tran_span" @click="item.show=!item.show;">NO</span>
+                        </div>
+                    </transition>
+                </div> 
             </li>
-            <li class="content_ul_li" v-show="choosed == 2">2</li>
-            <li class="content_ul_li" v-show="choosed == 3">3</li>
-            <li class="content_ul_li" v-show="choosed == 4">4</li>
+            <li class="content_ul_li" v-show="choosed == 'add'">
+                input the title of todo thing:
+                <input type="text" v-model="newtodo.title" class="newtitle" @input="check(newtodo.title)">
+                <p v-if="alreadyAdd">{{newtodo.title}} already exist!</p>
+                input the content of todo thing:
+                <textarea class="newcontent" cols="30" rows="10" v-model="newtodo.con"></textarea>
+                <p class="addsucces" v-if="successAdd">add success!</p>
+                <div @click="add(newtodo)" v-if="!alreadyAdd" class="add">add</div>
+                <div class="log">
+                    add log:
+                       
+                        <div v-for="(item,index) in newadd">{{index}}--{{item}}</div>
+                </div>
+            </li>
         </ul>
         <!--tab ul -->
         <ul class="tab_ul">
-            <li class="tab_ul_li" @click="choosed = 1">1</li>
-            <li class="tab_ul_li" @click="choosed = 2">2</li>
-            <li class="tab_ul_li" @click="choosed = 3">3</li>
-            <li class="tab_ul_li" @click="choosed = 4">4</li>
+            <li class="tab_ul_li" @click="total">total</li>
+            <li class="tab_ul_li" @click="filterDone">done</li>
+            <li class="tab_ul_li" @click="filterUndo">undo</li>
+            <li class="tab_ul_li" @click="choosed = 'add'">add</li>
         </ul>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
