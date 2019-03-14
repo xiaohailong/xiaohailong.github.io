@@ -12,7 +12,7 @@
         <h1 class="title">{{title}}</h1>
         <!-- content ul -->
         <ul class="content_ul">
-            <li class="content_ul_li" v-show="choosed == 'total'">
+            <li class="content_ul_li" v-if="choosed == 'total'">
                 <div v-for="(item,index) in todoList" class="li_item">
                     {{index+1}}. {{item.title}}<span @click="done(item)" class ='item' v-bind:class="item.status == 'done'?'item_done':'item_undo'">{{item.status == 'done'?'done':'done ?'}}</span>
                     <transition name="slide-fade" v-show="item.status == 'undo'" class="tran"> 
@@ -26,7 +26,7 @@
 
                 </div> 
             </li>
-            <li class="content_ul_li" v-show="choosed == 'add'">
+            <li class="content_ul_li_add" v-if="choosed == 'add'">
                 input the title of todo thing:
                 <input type="text" v-model="newtodo.title" class="newtitle" @input="check(newtodo.title)">
                 <p v-if="alreadyAdd" class="alreadyAdd">{{newtodo.title}} already exist!</p>
@@ -43,7 +43,7 @@
         </ul>
         <!--tab ul -->
         <ul class="tab_ul">
-            <li class="tab_ul_li" @click="total">total</li>
+            <li class="tab_ul_li cur" @click="total">total</li>
             <li class="tab_ul_li" @click="filterDone">done</li>
             <li class="tab_ul_li" @click="filterUndo">undo</li>
             <li class="tab_ul_li" @click="choosed = 'add'">add</li>
