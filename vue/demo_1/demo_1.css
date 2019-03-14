@@ -29,6 +29,7 @@ body{
     border-top:1px solid #ddd;
     display: flex;
     list-style: none;
+    background: #fff;
 }
 .tab_ul .tab_ul_li{
     flex:1;
@@ -41,11 +42,11 @@ body{
 }
 .content_ul .content_ul_li .li_item{
     /* text-align: center; */
-    font-size: 19px;
+    font-size: 23px;
     border-bottom:1px solid #ddd;
-    height: 45px;
-    line-height: 45px;
-    padding:0 20px;
+    /* height: 45px; */
+    /* line-height: 45px; */
+    padding:5px 20px;
     position: relative;
 }
 .content_ul_li:last-child{
@@ -58,8 +59,9 @@ body{
     left: 0;
     background: #fff;
     width: 97%;
-    padding:0 20px;
-    font-size: 19px;
+    padding:8px 20px 0;
+    font-size: 20px;
+    height: 100%;
 }
 .item{
     height: 30px;
@@ -69,8 +71,12 @@ body{
     line-height: 30px;
     vertical-align: middle;
     position: absolute;
-    top:6px;
+    top:10px;
     right: 20px;
+}
+.item_con{
+    font-size: 18px;
+    padding: 5px 0px;
 }
 .item_done{
     border: 1px solid darkgreen;  
@@ -113,6 +119,16 @@ body{
 
 
   /* add */
+  .alreadyAdd{
+      color:rebeccapurple;
+      font-size: 19px;
+  }
+  .addsucces{
+      color:rebeccapurple;
+      font-size: 19px;
+      text-align: center;
+      margin-bottom: 15px;
+  }
   .newtitle{
     border: 1px solid #ddd;
     padding: 7px;
@@ -143,5 +159,5 @@ body{
     margin-bottom: 15px;
   }
   .log{
-      margin-top:15px;
+      margin:15px 0 45px 0;
   }

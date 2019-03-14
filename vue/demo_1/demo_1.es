@@ -14,7 +14,9 @@ let app = new Vue({
         alreadyAdd:false,
         newadd:[],
         tempList:[],
-        successAdd:false
+        successAdd:false,
+        empty:true,
+        addMsg:'add success!'
         // show:false
     },
     mounted:function(){
@@ -25,12 +27,20 @@ let app = new Vue({
             this.alreadyAdd = false;
             // !this.alreadyAdd && this.todoList.push(Object.assign(this.newtodo,{status:'undo',show:false}));
             // console.log(Object.assign(this.newtodo,{status:'undo',show:false})); //Object.assign ？？？？
-            !this.alreadyAdd && this.todoList.push({title:this.newtodo.title,con:this.newtodo.con,status:'undo',show:false});
-            this.newadd.push(thing);
+            this.empty = this.newtodo.title == '';
+            if(this.newtodo.title == ''){
+                this.addMsg = 'please input the title';
+            }else{
+                !this.alreadyAdd && this.todoList.push({title:this.newtodo.title,con:this.newtodo.con,status:'undo',show:false});
+                this.newadd.push(thing);
+                this.addMsg = 'add success!';
+            }
+            this.successAdd = true;
+           
             this.newtodo = {title:'',con:''};
-            // oFunc.inform('add success!');
         },
         check:function(thing){
+            this.successAdd = false;
             this.alreadyAdd = false;
             this.todoList.forEach(element => {
                 if(thing == element.title){
@@ -58,7 +68,9 @@ let app = new Vue({
             this.choosed = 'total';
         },
         done:function(item){
-            item.show = !item.show;
+            if(item.status == 'undo'){
+                item.show = !item.show;
+            }
         }
     },
 });

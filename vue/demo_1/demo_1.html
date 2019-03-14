@@ -22,20 +22,22 @@
                             <span class="tran_no tran_span" @click="item.show=!item.show;">NO</span>
                         </div>
                     </transition>
+                    <div class="item_con">{{item.con}}</div>
+
                 </div> 
             </li>
             <li class="content_ul_li" v-show="choosed == 'add'">
                 input the title of todo thing:
                 <input type="text" v-model="newtodo.title" class="newtitle" @input="check(newtodo.title)">
-                <p v-if="alreadyAdd">{{newtodo.title}} already exist!</p>
+                <p v-if="alreadyAdd" class="alreadyAdd">{{newtodo.title}} already exist!</p>
                 input the content of todo thing:
                 <textarea class="newcontent" cols="30" rows="10" v-model="newtodo.con"></textarea>
-                <p class="addsucces" v-if="successAdd">add success!</p>
+                <p class="addsucces" v-if="successAdd">{{addMsg}}</p>
                 <div @click="add(newtodo)" v-if="!alreadyAdd" class="add">add</div>
                 <div class="log">
                     add log:
                        
-                        <div v-for="(item,index) in newadd">{{index}}--{{item}}</div>
+                        <div v-for="(item,index) in newadd">{{index+1}}--{{item}}</div>
                 </div>
             </li>
         </ul>
