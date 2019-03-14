@@ -17,7 +17,7 @@
                     {{index+1}}. {{item.title}}<span @click="done(item)" class ='item' v-bind:class="item.status == 'done'?'item_done':'item_undo'">{{item.status == 'done'?'done':'done ?'}}</span>
                     <transition name="slide-fade" v-show="item.status == 'undo'" class="tran"> 
                         <div v-show="item.show" class="tran">
-                            are sure done it ?
+                            sure done it ?
                             <span class="tran_yes tran_span" @click="item.status = 'done';item.show=!item.show;">YES</span>
                             <span class="tran_no tran_span" @click="item.show=!item.show;">NO</span>
                         </div>
