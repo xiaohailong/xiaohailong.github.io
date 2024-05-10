@@ -3,6 +3,9 @@ import { pluginReact } from '@rsbuild/plugin-react';
 
 export default defineConfig({
   plugins: [pluginReact()],
+  output: {
+    assetPrefix: 'https://xiaohailong.github.io/lp/dist/'
+  },
   html:{
     title: '给月月的卡片册',
     tags:[
